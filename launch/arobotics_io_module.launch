@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="port" default="/dev/ttyACM0"/>
+	<arg name="baudrate" default="9600"/>
+	<node type="io_module_node.py" name="io_module" pkg="arobotics_io_module" output="screen" respawn="true" respawn_delay="10">
+		<param name="port" value="$(arg port)"/>
+		<param name="baudrate" value="$(arg baudrate)"/>
+		<param name="freq" value="10"/>
+	</node>
+</launch>
