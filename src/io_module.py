@@ -13,8 +13,8 @@ class IOModule:
         self.rate = rospy.Rate(self.freq)
         self.serial_device = serial.Serial(port=self.port, baudrate=self.baudrate, timeout=1)
         self.inputs_pub = rospy.Publisher("~inputs_state", ReadInputs, queue_size=10)
-        rospy.Subscriber("~set_outpt", SetOutput, self.set_output_clb)
-        rospy.Subscriber("~set_outpts", SetOutputs, self.set_outputs_clb)
+        rospy.Subscriber("~set_output", SetOutput, self.set_output_clb)
+        rospy.Subscriber("~set_outputs", SetOutputs, self.set_outputs_clb)
         rospy.loginfo(f"IO module port:{self.port} baud:{self.baudrate}")
 
     def set_output_clb(self, msg):
